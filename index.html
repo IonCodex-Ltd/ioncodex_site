@@ -3,43 +3,92 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IONCODEX LTD · Independent software studio, UK</title>
-  <meta name="description" content="IONCODEX LTD is an independent UK software studio building mobile apps, web platforms and AI-powered tools, including MoonCycle and AutoShot.">
+  <title>IONCODEX LTD · UK software studio · MoonCycle, Autoshot.pro</title>
+  <meta name="description" content="Independent UK software studio behind MoonCycle, a private period tracker with a space for your partner, and Autoshot.pro, showroom-ready car listing photos.">
   <link rel="canonical" href="https://ioncodex.org/">
   <meta name="theme-color" content="#0f1224">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IONCODEX">
-  <meta property="og:title" content="IONCODEX LTD · Independent software studio, UK">
-  <meta property="og:description" content="Small studio. Big ideas. We build mobile apps, web platforms and AI-powered tools, including MoonCycle and AutoShot.">
+  <meta property="og:title" content="IONCODEX LTD · Independent UK software studio">
+  <meta property="og:description" content="Small studio. Big ideas. We build MoonCycle and Autoshot.pro, and take on a few client projects.">
   <meta property="og:url" content="https://ioncodex.org/">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "IONCODEX",
-    "legalName": "IONCODEX LTD",
-    "description": "Independent software studio in the United Kingdom.",
-    "url": "https://ioncodex.org/",
-    "email": "contact@ioncodex.org",
-    "foundingDate": "2025-10-21",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "127 Calshot Road",
-      "addressLocality": "Birmingham",
-      "postalCode": "B42 2BZ",
-      "addressCountry": "GB"
-    },
-    "identifier": {
-      "@type": "PropertyValue",
-      "propertyID": "Companies House company number",
-      "value": "16798601"
-    },
-    "brand": [
-      { "@type": "Brand", "name": "MoonCycle", "url": "https://mooncycle.fit/" },
-      { "@type": "Brand", "name": "AutoShot", "url": "https://autoshot.pro/" }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ioncodex.org/#org",
+        "name": "IONCODEX",
+        "legalName": "IONCODEX LTD",
+        "description": "Independent software studio in the United Kingdom.",
+        "url": "https://ioncodex.org/",
+        "email": "contact@ioncodex.org",
+        "foundingDate": "2025-10-21",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "127 Calshot Road",
+          "addressLocality": "Birmingham",
+          "postalCode": "B42 2BZ",
+          "addressCountry": "GB"
+        },
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "Companies House company number",
+          "value": "16798601"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ioncodex.org/#website",
+        "url": "https://ioncodex.org/",
+        "name": "IONCODEX",
+        "inLanguage": "en-GB",
+        "publisher": { "@id": "https://ioncodex.org/#org" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "MoonCycle",
+        "url": "https://mooncycle.fit/",
+        "description": "A private period and cycle tracker, with an optional AI chat and a space for your partner. You choose what they see.",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "HealthApplication",
+        "inLanguage": ["en-GB", "ro"],
+        "image": "https://ioncodex.org/assets/mooncycle-icon.jpg",
+        "screenshot": [
+          "https://ioncodex.org/assets/mooncycle/today.jpg",
+          "https://ioncodex.org/assets/mooncycle/patterns.jpg",
+          "https://ioncodex.org/assets/mooncycle/chat.jpg"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "4.99",
+          "priceCurrency": "GBP",
+          "description": "Monthly subscription after a 7-day free trial. The partner's side is free."
+        },
+        "publisher": { "@id": "https://ioncodex.org/#org" }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Autoshot.pro",
+        "url": "https://autoshot.pro/en/",
+        "description": "Showroom-ready car listing photos from the photos you take with your phone, for private sellers and dealerships.",
+        "operatingSystem": "Web browser",
+        "applicationCategory": "MultimediaApplication",
+        "inLanguage": ["en", "ro"],
+        "image": "https://ioncodex.org/assets/autoshot/icon.png",
+        "screenshot": "https://ioncodex.org/assets/autoshot/after.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": "7",
+          "priceCurrency": "EUR",
+          "description": "7 credits. A standard photo uses 1 credit. No subscription."
+        },
+        "publisher": { "@id": "https://ioncodex.org/#org" }
+      }
     ]
   }
   </script>
@@ -54,6 +103,7 @@
       --accent-2: #0ea5a4;
       --hero-ink: #ffffff;
       --hero-muted: #c9cbe8;
+      --gold: #9a6b1f;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -64,6 +114,7 @@
         --line: #252946;
         --accent: #8b85ff;
         --accent-2: #3dd6cf;
+        --gold: #e5b05c;
       }
     }
     * { box-sizing: border-box; }
@@ -136,34 +187,69 @@
 
     /* Products */
     .products { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
-    .product { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 32px; }
+    .product { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 32px; scroll-margin-top: 80px; }
     @media (max-width: 720px) { .product { padding: 22px; } }
     .product-head { display: flex; align-items: center; gap: 18px; margin: 0 0 22px; }
     .app-icon { flex: none; width: 76px; height: 76px; border-radius: 22%; box-shadow: 0 10px 26px rgba(15, 18, 36, 0.2); }
     .product h3 { font-size: 28px; line-height: 1.15; margin: 0; }
     .product .tagline { margin: 4px 0 0; font-size: 18px; font-weight: 600; color: var(--ink); }
     .product.mooncycle h3 { font-family: Georgia, "Times New Roman", serif; color: #c2486a; }
-    .product.autoshot h3 { color: #2a7656; }
+    .product.autoshot h3 .pro { color: var(--gold); }
+    @media (prefers-color-scheme: dark) { .product.mooncycle h3 { color: #f2b8c6; } }
+    .pill { display: inline-block; margin: 0 0 14px; padding: 5px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+    .pill.launch { background: #fbe4ec; color: #9b2c4f; }
+    .pill.testing { background: #f6ecd9; color: #7a5316; }
     @media (prefers-color-scheme: dark) {
-      .product.mooncycle h3 { color: #f2b8c6; }
-      .product.autoshot h3 { color: #5cc093; }
+      .pill.launch { background: #3a1c2a; color: #f6b7cb; }
+      .pill.testing { background: #2e2414; color: #e5b05c; }
     }
-    .product-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+    .product-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: start; }
     @media (max-width: 860px) { .product-body { grid-template-columns: minmax(0, 1fr); gap: 26px; } }
     .product-text p { color: var(--muted); margin: 0 0 14px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }
     .tags li { font-size: 13px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
-    .product-text p.status { font-size: 14px; }
     .more { font-weight: 600; text-decoration: none; }
     .more:hover, .path a:hover { text-decoration: underline; }
-    .shots { display: flex; justify-content: center; align-items: flex-end; gap: 14px; }
-    .shots img {
-      width: calc((100% - 28px) / 3); max-width: 172px; height: auto;
-      border-radius: 18px; border: 1px solid var(--line);
-      box-shadow: 0 14px 30px rgba(60, 30, 90, 0.22);
+    .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .facts li { padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg); }
+    .facts strong { display: block; font-size: 16px; }
+    .facts span { color: var(--muted); font-size: 15px; }
+
+    /* MoonCycle screens */
+    .strip {
+      display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 1fr); gap: 16px;
+      margin: 28px 0 0; padding: 4px 2px 12px; overflow-x: auto; scroll-snap-type: x mandatory;
     }
-    .shots img:nth-child(2) { margin-bottom: 22px; }
-    .paths { display: grid; gap: 14px; }
+    .strip figure { margin: 0; scroll-snap-align: start; }
+    .strip img {
+      display: block; width: 100%; height: auto;
+      border-radius: 18px; border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(60, 30, 90, 0.2);
+    }
+    .strip figcaption { margin-top: 8px; text-align: center; font-size: 14px; color: var(--muted); }
+
+    /* Autoshot.pro before and after */
+    .compare-fig { margin: 0; }
+    .compare {
+      --at: 50%;
+      position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+      border-radius: 18px; border: 1px solid var(--line); background: #111114;
+    }
+    .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .compare img.before { clip-path: inset(0 calc(100% - var(--at)) 0 0); }
+    .compare .handle { position: absolute; top: 0; bottom: 0; left: var(--at); width: 2px; margin-left: -1px; background: #fff; pointer-events: none; }
+    .compare .handle::after {
+      content: ""; position: absolute; top: 50%; left: 50%; width: 32px; height: 32px; border-radius: 50%;
+      transform: translate(-50%, -50%); background: #fff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+    .compare .tag { position: absolute; top: 10px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #fff; background: rgba(0, 0, 0, 0.55); pointer-events: none; }
+    .compare .tag.b { left: 10px; }
+    .compare .tag.a { right: 10px; }
+    .compare input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+    .compare-fig figcaption { margin-top: 8px; font-size: 14px; color: var(--muted); }
+
+    .paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+    @media (max-width: 720px) { .paths { grid-template-columns: minmax(0, 1fr); } }
     .path { display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
     .path h4 { margin: 0 0 6px; font-size: 17px; }
     .path p { flex: 1; margin: 0 0 14px; font-size: 15px; color: var(--muted); }
@@ -235,58 +321,81 @@
         <p class="intro">We build software around real needs, not just technology. Different products, different challenges, one approach: practical technology, thoughtful design and reliable engineering.</p>
 
         <div class="products">
-          <article class="product mooncycle">
+          <article class="product mooncycle" id="mooncycle">
             <div class="product-head">
               <img class="app-icon" src="assets/mooncycle-icon.jpg" alt="MoonCycle app icon" width="76" height="76">
               <div>
                 <h3>MoonCycle</h3>
-                <p class="tagline">Your cycle. Your story. Better understood.</p>
+                <p class="tagline">Private by design. Shared with purpose.</p>
               </div>
             </div>
             <div class="product-body">
               <div class="product-text">
-                <p>Track your period, symptoms, mood, energy and sleep, recognise your patterns, and ask everyday questions in an optional AI chat. If you like, your partner gets a space of their own with daily tips. You choose exactly what they see, and your detailed log stays on your phone.</p>
+                <p class="pill launch">Launching Monday 16 November 2026</p>
+                <p>MoonCycle is a period and cycle tracker that helps you recognise your patterns and find useful answers about what's happening throughout your cycle, with an optional AI chat for everyday questions.</p>
+                <p>If you'd like your partner to be part of it, there's a space for them too, with daily tips in the tone they like. You choose exactly what they see, and your detailed log stays on your phone.</p>
                 <ul class="tags">
-                  <li>Android</li><li>iOS</li><li>English · Română</li><li>Privacy first</li>
+                  <li>iPhone</li><li>Android</li><li>English · Română</li>
                 </ul>
-                <p class="status">Coming soon to the App Store and Google Play.</p>
                 <a class="more" href="https://mooncycle.fit">Explore MoonCycle →</a>
+                <!-- From launch day: App Store https://apps.apple.com/app/id6827181527
+                     and Google Play https://play.google.com/store/apps/details?id=com.ioncodex.mooncycle -->
               </div>
-              <div class="shots">
-                <img src="assets/mooncycle-today.jpg" alt="MoonCycle's Today screen: the cycle ring and the phase of the day" width="236" height="460" loading="lazy">
-                <img src="assets/mooncycle-chat.jpg" alt="MoonCycle's optional AI chat answering a question about the first day of a period" width="236" height="460" loading="lazy">
-                <img src="assets/mooncycle-partner.jpg" alt="MoonCycle's Partner screen, where sharing with a partner is turned on or off" width="236" height="460" loading="lazy">
-              </div>
+              <ul class="facts">
+                <li><strong>On the App Store and Google Play</strong><span>from Monday 16 November 2026.</span></li>
+                <li><strong>7 days free</strong><span>Then £4.99 a month or £49.99 a year in the UK, or €4.99 / €49.99 in the EU. Cancel any time in your store account.</span></li>
+                <li><strong>Free for your partner</strong><span>Your partner's side of the app costs nothing.</span></li>
+                <li><strong>Private by design</strong><span>No advertising, no selling your data, nothing shared unless you choose.</span></li>
+              </ul>
+            </div>
+            <div class="strip" role="group" aria-label="Screens from MoonCycle">
+              <figure><img src="assets/mooncycle/today.jpg" alt="MoonCycle's Today screen: where she is in her cycle, on the cycle ring" width="236" height="460" loading="lazy" decoding="async"><figcaption>Today</figcaption></figure>
+              <figure><img src="assets/mooncycle/patterns.jpg" alt="Patterns: energy, sleep and mood across her cycle" width="236" height="460" loading="lazy" decoding="async"><figcaption>Your patterns</figcaption></figure>
+              <figure><img src="assets/mooncycle/chat.jpg" alt="The optional AI chat, answering from MoonCycle's reviewed notes" width="236" height="460" loading="lazy" decoding="async"><figcaption>Ask MoonCycle</figcaption></figure>
+              <figure><img src="assets/mooncycle/partner.jpg" alt="Partner: she chooses exactly what her partner can see" width="236" height="460" loading="lazy" decoding="async"><figcaption>You choose what to share</figcaption></figure>
+              <figure><img src="assets/mooncycle/him.jpg" alt="His welcome: you don't have to read minds to show you care" width="236" height="460" loading="lazy" decoding="async"><figcaption>His side</figcaption></figure>
             </div>
           </article>
 
-          <article class="product autoshot">
+          <article class="product autoshot" id="autoshot">
             <div class="product-head">
-              <img class="app-icon" src="assets/autoshot-icon.png" alt="AutoShot app icon" width="76" height="76">
+              <img class="app-icon" src="assets/autoshot/icon.png" alt="Autoshot.pro app icon" width="76" height="76">
               <div>
-                <h3>AutoShot</h3>
+                <h3>Autoshot<span class="pro">.pro</span></h3>
                 <p class="tagline">Better car photos. Easier car sales.</p>
               </div>
             </div>
             <div class="product-body">
               <div class="product-text">
-                <p>Selling your own car or running a dealership? Take the photos with your phone, and AutoShot cuts the car out, relights it, adds a floor shadow and places it in a showroom, with the number plates blurred if you like. Then download a Listing Kit sized for Autovit, OLX, Facebook Marketplace or Auto Trader.</p>
+                <p class="pill testing">In testing with invited users</p>
+                <p>Take photos of a car with your phone, or upload the ones you already have. Autoshot.pro cleans up the background, balances the light and places the car in a studio or showroom, ready for a listing, without hiring a photographer.</p>
+                <p>It changes the background and the light, never the car itself, and number plates can be blurred.</p>
                 <ul class="tags">
-                  <li>Web</li><li>English · Română</li><li>iPhone and Android to follow</li>
+                  <li>Web browser</li><li>iPhone and Android in testing</li><li>English · Română</li>
                 </ul>
-                <p class="status">In a private pilot, free to try by invitation · <a href="https://autoshot.pro">autoshot.pro</a></p>
+                <a class="more" href="https://autoshot.pro/en/">Visit autoshot.pro →</a>
               </div>
-              <div class="paths">
-                <div class="path">
-                  <h4>Selling your own car</h4>
-                  <p>Showroom photos of your car, in minutes. Pay only for the photos you make: top-ups from €5, with no subscription.</p>
-                  <a href="mailto:contact@ioncodex.org?subject=AutoShot%20pilot%20access">Ask for an invitation →</a>
+              <figure class="compare-fig">
+                <div class="compare">
+                  <img src="assets/autoshot/after.jpg" alt="After: a red Land Rover Discovery Sport in a bright showroom" width="1600" height="1000" loading="lazy" decoding="async">
+                  <img class="before" src="assets/autoshot/before.jpg" alt="Before: the same Land Rover Discovery Sport photographed on a street" width="1600" height="1000" loading="lazy" decoding="async">
+                  <div class="handle" aria-hidden="true"></div>
+                  <span class="tag b">Before</span><span class="tag a">After</span>
+                  <input type="range" min="0" max="100" value="50" aria-label="Compare the photo before and after Autoshot.pro">
                 </div>
-                <div class="path">
-                  <h4>For dealerships</h4>
-                  <p>A studio for every car on your lot, with your logo, your showrooms and your team, each with their own sign-in and role. On the roadmap: VIN details, sales tracking and publishing straight to marketplaces.</p>
-                  <a href="mailto:contact@ioncodex.org?subject=AutoShot%20for%20dealerships">Talk to us about your dealership →</a>
-                </div>
+                <figcaption>A real Autoshot.pro result, taken with a phone. Drag to compare; the plate is blurred.</figcaption>
+              </figure>
+            </div>
+            <div class="paths">
+              <div class="path">
+                <h4>Selling your own car</h4>
+                <p>Pay only for the photos you make, with no subscription: one credit per photo (two for a photo with strong reflections), from €7 for 7 credits. Credits don't expire.</p>
+                <a href="mailto:contact@ioncodex.org?subject=Autoshot.pro%20pilot%20access">Ask to join the test →</a>
+              </div>
+              <div class="path">
+                <h4>For dealerships: Autoshot.pro Pro</h4>
+                <p>Shoot. List. Track. Sell. A shared studio look and your team with their own roles, available now. Stock management, listing texts and advertising costs are in development, and marketplace publishing follows as each platform approves it.</p>
+                <a href="mailto:contact@ioncodex.org?subject=Autoshot.pro%20dealership%20walkthrough">Request a walkthrough →</a>
               </div>
             </div>
           </article>
@@ -307,7 +416,7 @@
           <article class="card">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div>
             <h3>Practical AI</h3>
-            <p>We use AI where it adds real value, like answering everyday questions in MoonCycle or turning a phone photo into a showroom image in AutoShot. Never as a gimmick.</p>
+            <p>We use AI where it adds real value, like answering everyday questions in MoonCycle or turning a phone photo into a showroom image in Autoshot.pro. Never as a gimmick.</p>
           </article>
           <article class="card">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
@@ -322,7 +431,7 @@
       <div class="wrap work">
         <div>
           <h2>Work with us</h2>
-          <p>Our own products come first, but we also take on a small number of client projects, built with the same tools and the same care as MoonCycle and AutoShot.</p>
+          <p>Our own products come first, but we also take on a small number of client projects, built with the same tools and the same care as MoonCycle and Autoshot.pro.</p>
           <p>Tell us what you'd like to build, who it's for and your rough timeline. We'll reply and tell you honestly whether we're a good fit.</p>
           <a class="btn solid" href="mailto:contact@ioncodex.org?subject=Project%20enquiry">Tell us about your project</a>
         </div>
@@ -362,6 +471,13 @@
       <span><a href="privacy.html">Privacy</a></span>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.compare input').forEach(function (slider) {
+      slider.addEventListener('input', function () {
+        slider.parentElement.style.setProperty('--at', slider.value + '%');
+      });
+    });
+  </script>
 </body>
 </html>

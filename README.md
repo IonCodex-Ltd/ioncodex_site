@@ -7,11 +7,12 @@ Pages from the `main` branch of this repository.
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The home page: what we do, our apps, about, contact. Styles are at the top of the file. |
+| `index.html` | The home page: products, what we do, work with us, about, contact. Styles are at the top of the file. The `<script type="application/ld+json">` block describes the company and both apps to search engines: keep its prices and facts in step with the page. |
 | `privacy.html` | The privacy notice for the website. |
+| `404.html` | Shown for any address that doesn't exist, such as old links from the domain's previous site. Search engines don't index it. |
 | `favicon.svg` | The browser-tab icon, the same orbit mark as in the header. |
-| `assets/` | Images copied from the app projects: each app's icon, and three MoonCycle screenshots from mooncycle.fit (`mooncycle-today.jpg`, `mooncycle-chat.jpg`, `mooncycle-partner.jpg`). |
-| `robots.txt`, `sitemap.xml` | For search engines. When a page changes, update its `<lastmod>` date in `sitemap.xml`. |
+| `assets/` | Images copied from the app projects. `mooncycle-icon.jpg` and `mooncycle/` come from `mooncycle_app/site/` (the screens are the ones on mooncycle.fit). `autoshot/` holds Autoshot.pro's icon (`autoshot_app/web/icons/Icon-512.png`) and its before/after pair (`autoshot_app/web/showcase/`, plates blurred). |
+| `robots.txt`, `sitemap.xml` | For search engines. When a page changes, update its `<lastmod>` date in `sitemap.xml`; it also lists the product images. |
 | `CNAME` | Tells GitHub Pages to serve the site on `ioncodex.org`. Don't delete it. |
 | `.nojekyll` | Tells GitHub Pages to publish the files as they are, without running Jekyll. |
 
@@ -44,10 +45,29 @@ Rules worth keeping:
 - The company details in the footer (name, number, place of registration, registered
   office) are required by UK law on a company website. If the registered office moves,
   update both pages.
-- To add an app, copy one `<article class="app …">` block inside `<div class="apps">` in
-  `index.html`, put its square icon in `assets/`, and give its name a colour with a
-  `.app.<name> h3` rule in the styles. Check each claim against the app's own website
-  and project first: features, platforms, languages, and whether it is in the stores yet.
+- To add an app, copy one `<article class="product …">` block inside
+  `<div class="products">` in `index.html`, put its square icon and screens in
+  `assets/<name>/`, add it to the structured data block and its images to
+  `sitemap.xml`. Check each claim against the app's own website and project first:
+  features, platforms, languages, prices, and whether it is in the stores yet.
+
+## Search engines
+
+Done once, by hand:
+
+1. **Google Search Console** (search.google.com/search-console): Add property →
+   **Domain** → `ioncodex.org`. Google shows a TXT record; add it in GoDaddy's DNS (Name
+   `@`), keep it for good, then Verify.
+2. Sitemaps → submit `https://ioncodex.org/sitemap.xml`.
+3. URL inspection → `https://ioncodex.org/` → Request indexing.
+4. Old pages from the domain's previous site now answer "not found" (`404.html`), so
+   Google drops them by itself. To hide one sooner: Removals → New request, with its
+   address.
+5. **Bing Webmaster Tools** (bing.com/webmasters): sign in and import the site from
+   Search Console. Bing also feeds DuckDuckGo and Yahoo.
+
+Links from the app sites help too: mooncycle.fit already links here; autoshot.pro's
+footer names IONCODEX LTD and can link to `https://ioncodex.org`.
 
 ## Publishing for the first time
 
