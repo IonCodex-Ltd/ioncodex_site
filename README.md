@@ -11,7 +11,7 @@ Pages from the `main` branch of this repository.
 | `privacy.html` | The privacy notice for the website. |
 | `404.html` | Shown for any address that doesn't exist, such as old links from the domain's previous site. Search engines don't index it. |
 | `favicon.svg` | The browser-tab icon, the same orbit mark as in the header. |
-| `assets/` | Images copied from the app projects. `mooncycle-icon.jpg` and `mooncycle/` come from `mooncycle_app/site/` (the screens are the ones on mooncycle.fit). `autoshot/` holds Autoshot.pro's icon (`autoshot_app/web/icons/Icon-512.png`) and its before/after pair (`autoshot_app/web/showcase/`, plates blurred). |
+| `assets/` | Images copied from the app projects. `mooncycle-icon.jpg` and `mooncycle/` come from `mooncycle_app/site/` (the screens are the ones on mooncycle.fit). `autoshot/` holds Autoshot.pro's icon (`autoshot_app/web/icons/Icon-512.png`) and its before/after pair (`autoshot_app/web/showcase/`, plates blurred). `badges/google-play.png` is Google's official "Get it on Google Play" badge (English); use it unchanged. |
 | `robots.txt`, `sitemap.xml` | For search engines. When a page changes, update its `<lastmod>` date in `sitemap.xml`; it also lists the product images. |
 | `CNAME` | Tells GitHub Pages to serve the site on `ioncodex.org`. Don't delete it. |
 | `.nojekyll` | Tells GitHub Pages to publish the files as they are, without running Jekyll. |

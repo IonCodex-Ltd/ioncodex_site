@@ -211,7 +211,9 @@
     .tags li { font-size: 13px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
     .more { font-weight: 600; text-decoration: none; }
     .more:hover, .path a:hover { text-decoration: underline; }
-    .links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; }
+    .app-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+    .store { display: inline-block; line-height: 0; }
+    .store img { height: 48px; width: auto; }
     .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
     .facts li { padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg); }
     .facts strong { display: block; font-size: 16px; }
@@ -339,9 +341,9 @@
                 <ul class="tags">
                   <li>Android</li><li>iPhone coming soon</li><li>English · Română</li>
                 </ul>
-                <p class="links"><a class="more" href="https://play.google.com/store/apps/details?id=com.ioncodex.mooncycle">Get it on Google Play →</a><a class="more" href="https://mooncycle.fit">Explore MoonCycle →</a></p>
+                <p class="app-links"><a class="store" href="https://play.google.com/store/apps/details?id=com.ioncodex.mooncycle"><img src="assets/badges/google-play.png" alt="Get it on Google Play" width="162" height="48"></a><a class="more" href="https://mooncycle.fit">Explore MoonCycle →</a></p>
                 <!-- When the App Store listing is live: https://apps.apple.com/app/id6827181527
-                     add it to .links, and put "iPhone" back in the tags and "iOS" in the structured data -->
+                     add it to .app-links, and put "iPhone" back in the tags and "iOS" in the structured data -->
               </div>
               <ul class="facts">
                 <li><strong>On Google Play now</strong><span>Launched 16 November 2026. The iPhone version is coming soon to the App Store.</span></li>
